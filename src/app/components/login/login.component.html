@@ -1,0 +1,61 @@
+<div class="container-fluid animated fadeIn">
+    <div class="row no-gutter">
+        <div class="col-12">
+            <div class="h-100 animated fadeIn bg-animation">
+                <div class="d-flex h-100 justify-content-center align-items-center">
+                    <div class="mx-auto app-login-box col-lg-5 col-xl-4">
+                        <div class="text-center">
+                            <img id="siHoteles" src="assets/images/logos/logo.png" alt="Logo" title="SiHoteles"
+                                style="height: 8rem;">
+                        </div>
+
+                        <div class="modal-dialog w-100 mx-auto">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <form class="text-center" [formGroup]="ngForm">
+                                        <div class="h5 modal-title text-center">
+                                            <h4 class="mt-2">
+                                                <div>AdminSys,</div>
+                                                <span>Inicie sesión en su cuenta.</span>
+                                            </h4>
+                                        </div>
+                                        <div class="form-group">
+                                            <mat-form-field appearance="outline" class="w-100">
+                                                <mat-label>Usuario</mat-label>
+                                                <input matInput type="text" formControlName="j_username">
+                                                <mat-icon matSuffix>account_circle</mat-icon>
+                                                <mat-hint>Ingrese su usuario</mat-hint>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="form-group">
+                                            <mat-form-field appearance="outline" class="w-100">
+                                                <mat-label>Contraseña</mat-label>
+                                                <input matInput type="password" formControlName="j_password"
+                                                    (keyup.enter)="sign_in()">
+                                                <mat-icon matSuffix>visibility_off</mat-icon>
+                                                <mat-hint>Ingrese su contraseña</mat-hint>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="divider"></div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer clearfix">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="sign_in()"
+                                        [disabled]="!ngForm.valid">
+                                        <i class="fas fa-sign-in-alt mr-2"></i>LOG IN
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div
+            class="d-none d-md-flex col-md-5 col-lg-6 position-relative h-100 d-flex justify-content-center align-items-center bg-plum-plate">
+            <app-info-sih></app-info-sih>
+        </div> -->
+    </div>
+</div>
+

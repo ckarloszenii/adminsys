@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="form-group">
+    <span class="h6 mr-1">Aa</span>
+    <mat-slider min="0.5" max="5" (change)="formatLabel($event)" step="0.1"></mat-slider>
+    <span class="h5 font-weight-bold ml-1">Aa</span>
+  </div>
+  <div class="form-group col-2 ml-3">
+    <input type="text" class="form-control" [(colorPicker)]="colorPicker" [style.background]="colorPicker"
+      (colorPickerChange)="signaturePad.set('penColor', $event)">
+  </div>
+</div>
+
+<div class="col-12 text-center mb-2" style="border: dotted 1px #545454c4;">
+  <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"
+    style="border-top: 2px solid;">
+  </signature-pad>
+</div>
+<div class="form-group text-center">
+  <button type="button" class="btn btn-success px-4 py-3 mr-2" (click)="aceptarSignature()">
+    <i class="fas fa-check mr-2"></i>Aceptar
+  </button>
+  <button type="button" class="btn btn-danger px-4 py-3" (click)="signaturePad.clear()">
+    <i class="fas fa-eraser mr-2"></i>Limpiar
+  </button>
+</div>

@@ -1,0 +1,96 @@
+<div [class]="'app-sidebar sidebar-shadow ' + (config$ | async).sidebarTheme" (mouseover)="sidebarHover()"
+    (mouseout)="sidebarHover()">
+    <div class="app-header__logo">
+        <div class="logo-src"></div>
+        <div class="header__pane ml-auto">
+            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                [ngClass]="{'is-active' : globals.toggleSidebar}" (click)="toggleSidebar()">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="app-sidebar-content">
+        <div class="app-sidebar-scroll">
+            <perfect-scrollbar>
+                <div class="v-sidebar-menu vsm-default">
+                    <div class="vsm-list">
+
+                        <div class="vsm-header"><i class="fas fa-home"></i> Home</div>
+                        <div class="vsm-item">
+                            <a routerLink="{{ sistema }}" routerLinkActive="active-item" class="vsm-link">
+                                <i class="vsm-icon pe-7s-home"></i>
+                                <span class="vsm-title">Home</span>
+                            </a>
+                        </div>
+
+                        <ngb-accordion [destroyOnHide]="false" [closeOthers]="true" [activeIds]="extraParameter">
+
+                            <ngb-panel>
+                                <ng-template ngbPanelHeader>
+                                    <div class="vsm-header"><i class="fas fa-stream"></i> Menu</div>
+                                </ng-template>
+                            </ngb-panel>
+                            <ngb-panel *ngFor="let menu of menuPos">
+                                <ng-template ngbPanelHeader>
+                                    <button ngbPanelToggle class="vsm-link">
+                                        <i class="vsm-icon {{ menu.cIcon }}"></i>
+                                        <span class="vsm-title">{{ menu.cMenu }}</span>
+                                        <i class="vsm-arrow"></i>
+                                    </button>
+                                </ng-template>
+                                <ng-template ngbPanelContent>
+                                    <div class="vsm-dropdown">
+                                        <div class="vsm-list">
+                                            <div class="vsm-item" *ngFor="let submenu of menu.SubMenu">
+                                                <a routerLinkActive="active-item" [routerLink]="[submenu.cPrograma]"
+                                                    class="vsm-link" *ngIf="!submenu.Opcion">
+                                                    <span class="vsm-title">{{ submenu.cSubMenu }}</span>
+                                                </a>
+
+                                                <ngb-accordion [destroyOnHide]="false" [closeOthers]="true"
+                                                    [activeIds]="extraParameter" *ngIf="submenu.Opcion">
+
+                                                    <ngb-panel>
+                                                        <ng-template ngbPanelHeader>
+                                                            <button ngbPanelToggle class="vsm-link">
+                                                                <span class="vsm-title">{{ submenu.cSubMenu }}</span>
+                                                                <i class="vsm-arrow"></i>
+                                                            </button>
+                                                        </ng-template>
+                                                        <ng-template ngbPanelContent>
+
+                                                            <div class="vsm-dropdown">
+                                                                <div class="vsm-list">
+                                                                    <div class="vsm-item"
+                                                                        *ngFor="let opcion of submenu.Opcion">
+                                                                        <a routerLinkActive="active-item"
+                                                                            [routerLink]="[opcion.cPrograma]"
+                                                                            class="vsm-link">
+                                                                            <span class="vsm-title">{{ opcion.cOpcion
+                                                                                }}</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </ng-template>
+                                                    </ngb-panel>
+
+                                                </ngb-accordion>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </ngb-panel>
+
+                        </ngb-accordion>
+
+                    </div>
+                </div>
+            </perfect-scrollbar>
+        </div>
+    </div>
+</div>

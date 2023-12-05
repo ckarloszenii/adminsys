@@ -1,0 +1,13 @@
+<div class="card text-center">
+  <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+    [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions"
+    (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)" [mirrorImage]="'auto'">
+  </webcam>
+  <div class="card-body">
+    <h5 class="card-title">
+      <button class="btn btn-pill btn-shadow btn-dark py-2 px-5 ml-1" (click)="triggerSnapshot()">
+        <i class="fas fa-camera fa-2x"></i>
+      </button>
+    </h5>
+  </div>
+</div>

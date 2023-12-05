@@ -1,0 +1,17 @@
+@import "assets/base";
+
+.static {
+  position: absolute;
+  width: 72px;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #4caf50;
+}
+/* ::ng-deep .mat-step-header[aria-selected="true"]  {
+    background-color: gainsboro;
+    border-radius: 32px; 
+  }*/
+::ng-deep .mat-step-header .mat-step-label-selected {
+  font-weight: bold;
+}

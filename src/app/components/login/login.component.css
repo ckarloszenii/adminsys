@@ -1,0 +1,13 @@
+.circle-icon {
+    border: solid 2px lightgrey;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    line-height: 85px;
+    vertical-align: middle;
+    font-size: 64px;
+}
+
+mat-form-field.mat-form-field {
+    font-size: 16px;
+}

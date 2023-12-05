@@ -1,0 +1,6 @@
+{
+    "url_dev": "https://192.168.1.2:8871/",
+    "url_prod": "https://sihweb.sihoteles.com:8811/",
+    "url_php": "https://sihweb.sihoteles.com:9890"
+}
+
